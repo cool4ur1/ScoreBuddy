@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScoreBuddy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Custom hide scrollbar */
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#08110b] text-slate-200 font-sans selection:bg-green-500/30">
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-green-500 text-green-950 px-6 py-4 rounded-2xl shadow-2xl font-medium transition-all duration-300 opacity-0 translate-y-10 scale-95 pointer-events-none">
+    <span id="toast-message"></span>
+    <button onclick="hideToast()" class="opacity-70 hover:opacity-100">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="border-b border-white/5 sticky top-0 z-40 bg-[#08110b]/80 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+          <i data-lucide="smartphone" class="text-green-950 w-6 h-6"></i>
+        </div>
+        <div>
+          <div class="text-xl font-bold tracking-tight text-white leading-tight">ScoreBuddy</div>
+        </div>
+      </div>
+      <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+        <a href="#features" class="hover:text-green-400 transition-colors">Features</a>
+        <a href="#screenshots" class="hover:text-green-400 transition-colors">Screenshots</a>
+        <a href="#download" class="hover:text-green-400 transition-colors">Download</a>
+        <a href="#legal" class="hover:text-green-400 transition-colors">Legal</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-24 pb-32">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-900/20 via-[#08110b] to-[#08110b]"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-500/20 bg-green-500/10 text-green-400 text-sm font-medium mb-8">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+        </span>
+        New features added
+      </div>
+      
+      <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6 max-w-4xl">
+        The Ultimate Cricket <br class="hidden md:block"/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">
+          Scoring Experience
+        </span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl leading-relaxed">
+        Score your local matches like a pro. Designed for speed, accuracy, and celebrating every milestone on the pitch. No internet? No problem.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#download" class="bg-green-500 text-green-950 px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-400 transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_-10px_rgba(34,197,94,0.4)] flex items-center justify-center gap-2">
+          Get ScoreBuddy <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </a>
+        <a href="#features" class="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-xl font-medium text-lg hover:bg-white/10 transition-all flex items-center justify-center">
+          Explore Features
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Features Section -->
+  <section id="features" class="py-24 bg-[#0a150f] border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Built for the game</h2>
+        <p class="text-xl text-slate-400 max-w-3xl mx-auto">Everything you need to manage an inning, from tracking extra runs to deep analytics and offline capabilities.</p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-white/[0.02] border border-white/5 p-8 rounded-3xl">
+          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-white/5">
+            <div class="w-14 h-14 bg-green-500/10 text-green-400 rounded-2xl flex items-center justify-center shrink-0">
+              <i data-lucide="settings" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-green-500 font-medium text-sm tracking-wide uppercase mb-1">Pre-Match Configuration</div>
+              <h3 class="text-2xl font-bold text-white">Quick & Smart Match Setup</h3>
+            </div>
+          </div>
+          
+          <ul class="space-y-6">
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Custom Team & Player Management
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Set team names and number of players (e.g., 5-a-side, 11-a-side) manually.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Overs Customization
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Full control over the number of overs per match.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Toss & Decision
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Direct selection screen for deciding who bats first.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Last Man Standing Mode
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Special toggle for "Single Batsman Can Play Alone". The last remaining batsman can play without a non-striker.</p>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="bg-white/[0.02] border border-white/5 p-8 rounded-3xl">
+          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-white/5">
+            <div class="w-14 h-14 bg-green-500/10 text-green-400 rounded-2xl flex items-center justify-center shrink-0">
+              <i data-lucide="activity" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-green-500 font-medium text-sm tracking-wide uppercase mb-1">In-Match Experience</div>
+              <h3 class="text-2xl font-bold text-white">Advanced Live Scoring Engine</h3>
+            </div>
+          </div>
+          
+          <ul class="space-y-6">
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Real-Time Dashboard
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Clear display of Runs, Wickets, Overs, CRR, Target, and Required Run Rate (RRR).</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Granular 'Extras' Panel
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Dedicated popup for Wide (WD), No Ball (NB), Bye, Leg Bye, Penalty Runs (5, 7), and No Ball + Runs combinations.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Pro 'Run Out' Mechanism
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Specify exactly who is out (Striker/Non-striker) and how many runs were completed before the dismissal.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Undo Feature
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Instantly revert incorrect ball or run updates with a quick UNDO button.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>End Innings
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Manually declare or end the innings whenever necessary.</p>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="bg-white/[0.02] border border-white/5 p-8 rounded-3xl">
+          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-white/5">
+            <div class="w-14 h-14 bg-green-500/10 text-green-400 rounded-2xl flex items-center justify-center shrink-0">
+              <i data-lucide="cpu" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-green-500 font-medium text-sm tracking-wide uppercase mb-1">Effortless Management</div>
+              <h3 class="text-2xl font-bold text-white">Smart Automation & UI Controls</h3>
+            </div>
+          </div>
+          
+          <ul class="space-y-6">
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Auto-Selection Popups
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Smart popups prompt for the next batsman after a wicket and the next bowler after an over.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>In-Game Modifications
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Full modification options during the first innings to correct major setup mistakes without restarting.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Role Swapping
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Easily swap batsman positions (strike/non-strike) manually at any time.</p>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Feature 4 -->
+        <div class="bg-white/[0.02] border border-white/5 p-8 rounded-3xl">
+          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-white/5">
+            <div class="w-14 h-14 bg-green-500/10 text-green-400 rounded-2xl flex items-center justify-center shrink-0">
+              <i data-lucide="trophy" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-green-500 font-medium text-sm tracking-wide uppercase mb-1">Gamified Elements</div>
+              <h3 class="text-2xl font-bold text-white">Rewards, Milestones & Celebrations</h3>
+            </div>
+          </div>
+          
+          <ul class="space-y-6">
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Live Match Achievements
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Beautiful confetti animations and trophy popups for 50s (Half-Century) and 100s (Century).</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Match Finished Screen
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Final results with winning margins and team score summaries beautifully presented.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Man of the Match
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Automatically selects and highlights the top performer based on comprehensive stats.</p>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Feature 5 -->
+        <div class="bg-white/[0.02] border border-white/5 p-8 rounded-3xl">
+          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-white/5">
+            <div class="w-14 h-14 bg-green-500/10 text-green-400 rounded-2xl flex items-center justify-center shrink-0">
+              <i data-lucide="pie-chart" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-green-500 font-medium text-sm tracking-wide uppercase mb-1">Match Stats</div>
+              <h3 class="text-2xl font-bold text-white">Deep Analytics & Reports</h3>
+            </div>
+          </div>
+          
+          <ul class="space-y-6">
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Comprehensive Scorecard
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Detailed batting (Runs, Balls, 4s, 6s, SR) and bowling (Overs, Maidens, Runs, Wickets, Eco) stats.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Visual Data Graphs
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Worm Chart for cumulative runs comparison and Bar Chart for Runs Per Over visualization.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>PDF Export
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Generate professional PDF match reports with full details including partnerships, fall of wickets, and graphs/charts for both innings. Share with a single click via WhatsApp or Email.</p>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Feature 6 & 7 combined -->
+        <div class="bg-white/[0.02] border border-white/5 p-8 rounded-3xl">
+          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-white/5">
+            <div class="w-14 h-14 bg-green-500/10 text-green-400 rounded-2xl flex items-center justify-center shrink-0">
+              <i data-lucide="shield" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-green-500 font-medium text-sm tracking-wide uppercase mb-1">Reliable Archiving & Future</div>
+              <h3 class="text-2xl font-bold text-white">Performance, Security & Roadmap</h3>
+            </div>
+          </div>
+          
+          <ul class="space-y-6">
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Match History System
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Access full data, stats, MOM, and best performers for your last 100 matches straight from the app.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>100% Offline & Private
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">No internet required. All data is stored locally on your device ensuring complete privacy.</p>
+            </li>
+            <li class="flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-white font-semibold flex-wrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>Lightweight & Secure Code
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Compact app size with fully obfuscated source code via ProGuard/R8 to prevent reverse engineering.</p>
+            </li>
+            <li class="flex flex-col gap-1 mt-4 pt-4 border-t border-white/5">
+              <div class="flex items-center gap-2 text-yellow-500 font-semibold flex-wrap">
+                <i data-lucide="radio" class="w-4 h-4 shrink-0"></i>(Upcoming) P2P Offline Local Broadcasting
+              </div>
+              <p class="text-slate-400 leading-relaxed text-sm pl-3.5 border-l border-white/5 ml-0.5">Broadcast live match scores to nearby devices without the internet using local Peer-to-Peer connectivity.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots Section -->
+  <section id="screenshots" class="py-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-16 md:flex justify-between items-end">
+      <div>
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">See it in action</h2>
+        <p class="text-xl text-slate-400 max-w-xl">A beautiful, dark-themed interface right at your fingertips. Designed to be highly visible even under the bright stadium sun.</p>
+      </div>
+    </div>
+    
+    <!-- Horizontal scroll container -->
+    <div class="flex gap-6 px-6 sm:px-12 md:px-24 overflow-x-auto pb-12 snap-x snap-mandatory hide-scrollbar">
+      
+      <!-- Screenshot 1: Match Setup -->
+      <div class="snap-center flex-none w-[280px] md:w-[320px] aspect-[9/19.5] bg-[#112318] rounded-[2.5rem] border-[8px] border-[#1f3a29] overflow-hidden relative shadow-2xl flex flex-col">
+        <div class="absolute top-0 inset-x-0 h-6 bg-transparent z-10 flex justify-center">
+           <div class="w-32 h-6 bg-[#1f3a29] rounded-b-3xl"></div>
+        </div>
+        <img src="WhatsApp Image 2026-05-04 at 3.20.52 PM_2.jpeg" alt="Match Setup" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Screenshot 2: Live Scoring Main -->
+      <div class="snap-center flex-none w-[280px] md:w-[320px] aspect-[9/19.5] bg-[#112318] rounded-[2.5rem] border-[8px] border-[#1f3a29] overflow-hidden relative shadow-2xl flex flex-col">
+        <div class="absolute top-0 inset-x-0 h-6 bg-transparent z-10 flex justify-center">
+           <div class="w-32 h-6 bg-[#1f3a29] rounded-b-3xl"></div>
+        </div>
+        <img src="WhatsApp Image 2026-05-04 at 6.23.51 PM.jpeg" alt="Live Scoring Main" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Screenshot 3: Select Bowler -->
+      <div class="snap-center flex-none w-[280px] md:w-[320px] aspect-[9/19.5] bg-[#112318] rounded-[2.5rem] border-[8px] border-[#1f3a29] overflow-hidden relative shadow-2xl flex flex-col">
+        <div class="absolute top-0 inset-x-0 h-6 bg-transparent z-10 flex justify-center">
+           <div class="w-32 h-6 bg-[#1f3a29] rounded-b-3xl"></div>
+        </div>
+        <img src="WhatsApp Image 2026-05-04 at 3.21.00 PM_2.jpeg" alt="Select Bowler" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Screenshot 4: Extra Runs Menu -->
+      <div class="snap-center flex-none w-[280px] md:w-[320px] aspect-[9/19.5] bg-[#112318] rounded-[2.5rem] border-[8px] border-[#1f3a29] overflow-hidden relative shadow-2xl flex flex-col">
+        <div class="absolute top-0 inset-x-0 h-6 bg-transparent z-10 flex justify-center">
+           <div class="w-32 h-6 bg-[#1f3a29] rounded-b-3xl"></div>
+        </div>
+        <img src="WhatsApp Image 2026-05-04 at 3.20.54 PM (1)_2.jpeg" alt="Extra Runs Menu" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Screenshot 5: Run Out Menu -->
+      <div class="snap-center flex-none w-[280px] md:w-[320px] aspect-[9/19.5] bg-[#112318] rounded-[2.5rem] border-[8px] border-[#1f3a29] overflow-hidden relative shadow-2xl flex flex-col">
+        <div class="absolute top-0 inset-x-0 h-6 bg-transparent z-10 flex justify-center">
+           <div class="w-32 h-6 bg-[#1f3a29] rounded-b-3xl"></div>
+        </div>
+        <img src="WhatsApp Image 2026-05-04 at 3.20.54 PM_2.jpeg" alt="Run Out Menu" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Screenshot 6: Milestone Confetti -->
+      <div class="snap-center flex-none w-[280px] md:w-[320px] aspect-[9/19.5] bg-[#112318] rounded-[2.5rem] border-[8px] border-[#1f3a29] overflow-hidden relative shadow-2xl flex flex-col">
+        <div class="absolute top-0 inset-x-0 h-6 bg-transparent z-10 flex justify-center">
+           <div class="w-32 h-6 bg-[#1f3a29] rounded-b-3xl"></div>
+        </div>
+        <img src="WhatsApp Image 2026-05-04 at 3.24.15 PM_2.jpeg" alt="Milestone Confetti" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Screenshot 7: Match Scorecard -->
+      <div class="snap-center flex-none w-[280px] md:w-[320px] aspect-[9/19.5] bg-[#112318] rounded-[2.5rem] border-[8px] border-[#1f3a29] overflow-hidden relative shadow-2xl flex flex-col">
+        <div class="absolute top-0 inset-x-0 h-6 bg-transparent z-10 flex justify-center">
+           <div class="w-32 h-6 bg-[#1f3a29] rounded-b-3xl"></div>
+        </div>
+        <img src="WhatsApp Image 2026-05-04 at 3.20.57 PM_2.jpeg" alt="Match Scorecard" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Screenshot 8: Match Charts -->
+      <div class="snap-center flex-none w-[280px] md:w-[320px] aspect-[9/19.5] bg-[#112318] rounded-[2.5rem] border-[8px] border-[#1f3a29] overflow-hidden relative shadow-2xl flex flex-col">
+        <div class="absolute top-0 inset-x-0 h-6 bg-transparent z-10 flex justify-center">
+           <div class="w-32 h-6 bg-[#1f3a29] rounded-b-3xl"></div>
+        </div>
+        <img src="WhatsApp Image 2026-05-04 at 6.29.26 PM.jpeg" alt="Match Charts" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Screenshot 9: Match History -->
+      <div class="snap-center flex-none w-[280px] md:w-[320px] aspect-[9/19.5] bg-[#112318] rounded-[2.5rem] border-[8px] border-[#1f3a29] overflow-hidden relative shadow-2xl flex flex-col">
+        <div class="absolute top-0 inset-x-0 h-6 bg-transparent z-10 flex justify-center">
+           <div class="w-32 h-6 bg-[#1f3a29] rounded-b-3xl"></div>
+        </div>
+        <img src="WhatsApp Image 2026-05-04 at 3.21.01 PM_2.jpeg" alt="Match History" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Screenshot 10: Match Finished -->
+      <div class="snap-center flex-none w-[280px] md:w-[320px] aspect-[9/19.5] bg-[#112318] rounded-[2.5rem] border-[8px] border-[#1f3a29] overflow-hidden relative shadow-2xl flex flex-col">
+        <div class="absolute top-0 inset-x-0 h-6 bg-transparent z-10 flex justify-center">
+           <div class="w-32 h-6 bg-[#1f3a29] rounded-b-3xl"></div>
+        </div>
+        <img src="WhatsApp Image 2026-05-04 at 3.20.59 PM_2.jpeg" alt="Match Finished" class="w-full h-full object-cover">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section id="download" class="py-24 bg-gradient-to-b from-[#0a150f] to-[#08110b]">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <i data-lucide="shield-check" class="w-16 h-16 text-green-500 mx-auto mb-8 opacity-80"></i>
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Ready to hit the field?</h2>
+      <p class="text-xl text-slate-400 mb-12 max-w-2xl mx-auto">Choose your preferred app store below. Our highly awaited public release is coming soon.</p>
+      
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#" onclick="showToast('Google Play release is Coming Soon!')" class="bg-black border border-white/20 hover:border-white/50 hover:bg-white/5 text-white px-6 py-3 rounded-2xl flex items-center gap-4 transition-all hover:-translate-y-1 active:translate-y-0 active:scale-95 min-w-[240px] shadow-2xl">
+          <div class="w-8 h-8 shrink-0 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" class="w-8 h-8">
+              <path fill="#34A853" d="M3 2v20l10.5-10z" />
+              <path fill="#4285F4" d="M13.5 12L3 22l14.2-8.3z" />
+              <path fill="#F2A600" d="M13.5 12l3.7-3.7 3.3 1.9c1 .6 1 1.6 0 2.2l-3.3 1.9z" />
+              <path fill="#EA4335" d="M3 2l10.5 10 3.7-3.7L13.9 6z" />
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-[11px] font-bold tracking-wider text-slate-400 uppercase leading-none mb-1">GET IT ON</div>
+            <div class="text-[22px] font-bold leading-tight">Google Play</div>
+          </div>
+        </a>
+        <a href="#" onclick="showToast('Amazon Appstore release is Coming Soon!')" class="bg-black border border-white/20 hover:border-white/50 hover:bg-white/5 text-white px-6 py-3 rounded-2xl flex items-center gap-4 transition-all hover:-translate-y-1 active:translate-y-0 active:scale-95 min-w-[240px] shadow-2xl">
+          <div class="w-8 h-8 shrink-0 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-white">
+              <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13zm6.565-6.218c0-1.005.247-1.863.743-2.577.495-.71 1.17-1.25 2.04-1.615.796-.335 1.756-.575 2.912-.72.39-.046 1.033-.103 1.92-.174v-.37c0-.93-.105-1.558-.3-1.875-.302-.43-.78-.65-1.44-.65h-.182c-.48.046-.896.196-1.246.46-.35.27-.575.63-.675 1.096-.06.3-.206.465-.435.51l-2.52-.315c-.248-.06-.372-.18-.372-.39 0-.046.007-.09.022-.15.247-1.29.855-2.25 1.82-2.88.976-.616 2.1-.975 3.39-1.05h.54c1.65 0 2.957.434 3.888 1.29.135.15.27.3.405.48.12.165.224.314.283.45.075.134.15.33.195.57.06.254.105.42.135.51.03.104.062.3.076.615.01.313.02.493.02.553v5.28c0 .376.06.72.165 1.036.105.313.21.54.315.674l.51.674c.09.136.136.256.136.36 0 .12-.06.226-.18.314-1.2 1.05-1.86 1.62-1.963 1.71-.165.135-.375.15-.63.045a6.062 6.062 0 01-.526-.496l-.31-.347a9.391 9.391 0 01-.317-.42l-.3-.435c-.81.886-1.603 1.44-2.4 1.665-.494.15-1.093.227-1.83.227-1.11 0-2.04-.343-2.76-1.034-.72-.69-1.08-1.665-1.08-2.94l-.05-.076zm3.753-.438c0 .566.14 1.02.425 1.364.285.34.675.512 1.155.512.045 0 .106-.007.195-.02.09-.016.134-.023.166-.023.614-.16 1.08-.553 1.424-1.178.165-.28.285-.58.36-.91.09-.32.12-.59.135-.8.015-.195.015-.54.015-1.005v-.54c-.84 0-1.484.06-1.92.18-1.275.36-1.92 1.17-1.92 2.43l-.035-.02zm9.162 7.027c.03-.06.075-.11.132-.17.362-.243.714-.41 1.05-.5a8.094 8.094 0 011.612-.24c.14-.012.28 0 .41.03.65.06 1.05.168 1.172.33.063.09.099.228.099.39v.15c0 .51-.149 1.11-.424 1.8-.278.69-.664 1.248-1.156 1.68-.073.06-.14.09-.197.09-.03 0-.06 0-.09-.012-.09-.044-.107-.12-.064-.24.54-1.26.806-2.143.806-2.64 0-.15-.03-.27-.087-.344-.145-.166-.55-.257-1.224-.257-.243 0-.533.016-.87.046-.363.045-.7.09-1 .135-.09 0-.148-.014-.18-.044-.03-.03-.036-.047-.02-.077 0-.017.006-.03.02-.063v-.06z" />
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-[11px] font-bold tracking-wider text-slate-400 uppercase leading-none mb-1">AVAILABLE AT</div>
+            <div class="text-[22px] font-bold leading-tight">Amazon</div>
+          </div>
+        </a>
+        <a href="#" onclick="showToast('Uptodown release is Coming Soon!')" class="bg-black border border-white/20 hover:border-white/50 hover:bg-white/5 text-white px-6 py-3 rounded-2xl flex items-center gap-4 transition-all hover:-translate-y-1 active:translate-y-0 active:scale-95 min-w-[240px] shadow-2xl">
+          <div class="w-8 h-8 shrink-0 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="#00c8b6" class="w-8 h-8">
+              <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 14.6l-5-5h3V6.5h4v5.1h3l-5 5z" />
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-[11px] font-bold tracking-wider text-slate-400 uppercase leading-none mb-1">DOWNLOAD ON</div>
+            <div class="text-[22px] font-bold leading-tight">Uptodown</div>
+          </div>
+        </a>
+        <a href="#" onclick="showToast('Aptoide release is Coming Soon!')" class="bg-black border border-white/20 hover:border-white/50 hover:bg-white/5 text-white px-6 py-3 rounded-2xl flex items-center gap-4 transition-all hover:-translate-y-1 active:translate-y-0 active:scale-95 min-w-[240px] shadow-2xl">
+          <div class="w-8 h-8 shrink-0 flex items-center justify-center">
+            <svg viewBox="0 0 32 32" fill="#f05423" class="w-8 h-8">
+              <path d="M28.7733 21.4534L27.32 11.2401C27.1359 9.96107 26.4937 8.79235 25.5128 7.95118C24.5318 7.11001 23.2788 6.6536 21.9867 6.66678H9.96001C8.66786 6.6536 7.41486 7.11001 6.43391 7.95118C5.45295 8.79235 4.81076 9.96107 4.62668 11.2401L3.22668 21.4534C3.15799 21.9351 3.19348 22.4259 3.33076 22.8927C3.46803 23.3595 3.7039 23.7914 4.02241 24.1592C4.34092 24.527 4.73467 24.8222 5.17705 25.0248C5.61943 25.2273 6.10013 25.3326 6.58668 25.3334C7.03287 25.3331 7.4746 25.2445 7.88647 25.0729C8.29834 24.9013 8.67224 24.65 8.98668 24.3334L12 21.3334H20L23 24.3334C23.6359 24.9716 24.4991 25.3312 25.4 25.3334C25.8877 25.3345 26.3699 25.2306 26.8139 25.0289C27.2579 24.8272 27.6533 24.5323 27.9733 24.1642C28.2932 23.7962 28.5303 23.3637 28.6683 22.8959C28.8064 22.4282 28.8422 21.9362 28.7733 21.4534ZM25.9733 22.4134C25.9045 22.4944 25.8186 22.5591 25.7217 22.6029C25.6249 22.6467 25.5196 22.6685 25.4133 22.6668C25.3169 22.6672 25.2213 22.6485 25.1321 22.6119C25.0429 22.5753 24.9617 22.5215 24.8933 22.4534L21.1067 18.6668H10.8933L7.10668 22.4534C7.03829 22.5215 6.95716 22.5753 6.86793 22.6119C6.7787 22.6485 6.68313 22.6672 6.58668 22.6668C6.48043 22.6685 6.37511 22.6467 6.27829 22.6029C6.18147 22.5591 6.09554 22.4944 6.02668 22.4134C5.95484 22.3354 5.90186 22.242 5.87181 22.1403C5.84176 22.0386 5.83545 21.9313 5.85335 21.8268L7.30668 11.6134C7.39988 10.9774 7.71968 10.3965 8.20722 9.97754C8.69476 9.5586 9.31721 9.32987 9.96001 9.33345H22.04C22.6871 9.32708 23.3144 9.55622 23.805 9.97816C24.2957 10.4001 24.6161 10.986 24.7067 11.6268L26.16 21.8401C26.1722 21.9435 26.1618 22.0483 26.1296 22.1473C26.0974 22.2462 26.0441 22.3371 25.9733 22.4134Z" />
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-[11px] font-bold tracking-wider text-slate-400 uppercase leading-none mb-1">GET IT ON</div>
+            <div class="text-[22px] font-bold leading-tight">Aptoide</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal & T&C -->
+  <section id="legal" class="py-24 border-t border-white/5 bg-[#050a06]">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="mb-12 flex items-center gap-4 border-b border-white/5 pb-6">
+        <i data-lucide="file-text" class="w-8 h-8 text-slate-400 shrink-0"></i>
+        <div>
+          <h2 class="text-2xl font-bold text-white">Terms & Conditions</h2>
+          <p class="text-slate-500">and Privacy Policy</p>
+        </div>
+      </div>
+      
+      <div class="space-y-8 text-slate-400 leading-relaxed text-sm">
+        <div>
+          <h3 class="text-white font-semibold text-base mb-2">1. Introduction and Ownership</h3>
+          <p>ScoreBuddy is a specialized cricket scoring application developed and maintained by The Buddy Project ("Developer," "We," "Us," or "Our"). The App provides local cricket match scoring, statistical tracking, and match data visualization.</p>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-semibold text-base mb-2">2. Privacy Policy & Data Collection (Local Storage Only)</h3>
+          <p>We prioritize your privacy above all else.</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li><strong>No External Data Collection:</strong> ScoreBuddy operates entirely offline. We do not collect, transmit, store, or share any personally identifiable information, match data, player names, or team statistics on any external servers or databases.</li>
+            <li><strong>Local Storage:</strong> All data generated within the App (including match history, team details, and player statistics) is stored exclusively on your device's local internal storage.</li>
+            <li><strong>Data Responsibility:</strong> Because your data is stored locally, you are solely responsible for its backup. Uninstalling the App or clearing the App's data from your device settings will permanently delete all your match history and records. We cannot recover lost data.</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-semibold text-base mb-2">3. App Permissions</h3>
+          <p>To provide its core functionalities, ScoreBuddy requires the following permission:</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li><strong>Storage/Files Permission:</strong> This permission is strictly used to generate, save, and export match summary reports as PDF files to your device's local storage. We do not access, read, or modify any other personal files, photos, or documents on your device.</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-semibold text-base mb-2">4. Third-Party Services and Advertising</h3>
+          <p>ScoreBuddy is a free application, and to support its continued development, we may display advertisements using third-party ad networks (such as Google AdMob, AppLovin, etc.).</p>
+          <p class="mt-2">These third-party providers may collect anonymized device identifiers (like Google Advertising ID) and use cookies to serve personalized or non-personalized advertisements.</p>
+          <p class="mt-2">These services have their own Privacy Policies, and we do not share your local match data with them. By using the App, you consent to the processing of this anonymized advertising data by these third-party networks.</p>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold text-base mb-2">5. Intellectual Property Rights</h3>
+          <p>The ScoreBuddy name, logo, user interface designs, underlying logic, and compiled code (APK) are the exclusive intellectual property of The Buddy Project.</p>
+          <p class="mt-2">You may use the App for personal or local club scoring purposes.</p>
+          <p class="mt-2">You are strictly prohibited from copying, decompiling, reverse-engineering, modifying, or redistributing the App or any of its components without explicit written permission from the Developer.</p>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold text-base mb-2">6. Limitation of Liability</h3>
+          <p>ScoreBuddy is provided on an "as is" and "as available" basis. While we strive to provide accurate calculations and statistics, The Buddy Project makes no warranties regarding the absolute accuracy, reliability, or uninterrupted operation of the App.</p>
+          <p class="mt-2">We shall not be held liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use the App, including but not limited to data loss or scoring disputes during a match.</p>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold text-base mb-2">7. Changes to These Terms</h3>
+          <p>We reserve the right to update or modify these Terms of Service and Privacy Policy at any time, especially as we add new features to the App in future updates. We advise you to review this page periodically for any changes. Continued use of the App after modifications indicates your acceptance of the new terms.</p>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-semibold text-base mb-2">8. Contact Information</h3>
+          <p>If you have any questions, suggestions, bug reports, or require support regarding these Terms, the Privacy Policy, or the ScoreBuddy App in general, please contact us at:</p>
+          <p class="mt-2">Email: <a href="mailto:somework44@gmail.com" class="text-green-500 hover:underline">somework44@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center border-t border-white/5 bg-[#050a06] text-slate-600 text-sm">
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> ScoreBuddy.</p>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Toast Notification Logic
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      
+      toastMsg.textContent = message;
+      
+      // Prevent default link behavior if triggered via onclick="event.preventDefault(); showToast(...)"
+      // but here it's simple enough if href="#" triggers it.
+      
+      toast.classList.remove('opacity-0', 'translate-y-10', 'scale-95', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+      
+      if (window.toastTimer) {
+        clearTimeout(window.toastTimer);
+      }
+      
+      window.toastTimer = setTimeout(() => {
+        hideToast();
+      }, 3000);
+    }
+
+    function hideToast() {
+      const toast = document.getElementById('toast');
+      toast.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
+      toast.classList.add('opacity-0', 'translate-y-10', 'scale-95', 'pointer-events-none');
+    }
+
+    // Smooth scroll for anchor tags overriden if needed, though handled by CSS `scroll-behavior: smooth`
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const hash = this.getAttribute('href');
+        if (hash === '#') {
+          e.preventDefault();
+        } else {
+          e.preventDefault();
+          document.querySelector(hash).scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
